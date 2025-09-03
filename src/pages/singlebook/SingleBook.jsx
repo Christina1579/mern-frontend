@@ -7,7 +7,9 @@ const SingleBook = () => {
   const { id } = useParams();
   const [book, setBook] = useState([]);
   const fetchBooks = async () => {
-    const response = await axios.get(`http://localhost:3000/book/${id}`);
+    const response = await axios.get(
+      `https://mern-backend-a09y.onrender.com/book/${id}`
+    );
     if (response.status === 200) {
       setBook(response.data.data);
     }
@@ -22,7 +24,9 @@ const handleDelete = async () => {
   if (!confirmDelete) return;
 
   try {
-    const response = await axios.delete(`http://localhost:3000/book/${id}`);
+    const response = await axios.delete(
+      `https://mern-backend-a09y.onrender.com/book/${id}`
+    );
     if (response.status === 200) {
       alert("Book deleted successfully");
       navigate("/"); // redirect to homepage

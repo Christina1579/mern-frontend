@@ -34,7 +34,7 @@ const EditBook = () => {
     formData.append("image", image);
 
     const response = await axios.patch(
-      "http://localhost:3000/book/" + id,
+      "https://mern-backend-a09y.onrender.com  /book/" + id,
       formData
     );
     if (response.status === 201) {
@@ -44,7 +44,9 @@ const EditBook = () => {
     }
   };
   const fetchBooks = async () => {
-    const response = await axios.get(`http://localhost:3000/book/${id}`);
+    const response = await axios.get(
+      `https://mern-backend-a09y.onrender.com/book/${id}`
+    );
     if (response.status === 200) {
       setBook(response.data.data);
     }
